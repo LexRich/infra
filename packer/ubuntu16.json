@@ -1,0 +1,24 @@
+{
+    "builders": [
+    {
+	"type": googlecompute",
+	"progect_id": "week-3-184115"
+	"image_name": "reddit-base-{{timestamp}}",
+	"source_image": "ubuntu-1604-xenial-v20171028"
+	"zone": "asia-southeast1-a",
+	"ssh_username": "appuser",
+	"machine_type": "f1-micro"
+    }
+		],
+    "provisioners": [
+    {
+	"type": "shell",
+	"script": "scripts/install_ruby.sh"
+    },
+    {
+	"type": "shell",
+	"script": "scripts/insatll_mongodb.sh",
+	"execute_command": sudo {{.Path}}"
+    }
+		    ]
+}
