@@ -1,19 +1,19 @@
 provider "google" {
-    project = "infra-185909"
-    region  = "europe-west1"
+    project = "${var.project}"
+    region  = "${var.region}"
 }
 
 resource "google_compute_instance" "app" {
     name         = "reddit-app"
     machine_type = "g1-small"
-    zone         = "europe-west1-b"
+    zone         = "${var.region}-${var.zone}"
     tags         = ["reddit-app"]
     metadata {
-	sshKeys = "appuser:${file("~/.ssh/appuser.pub")}"
+	sshKeys = "appuser:${file(var.public_key_path)}"
     }
     boot_disk {
 	initialize_params {
-	    image = "reddit-base-1510567826"
+	    image = "${var.disk_image}"
 	}
     }
     network_interface {
@@ -25,7 +25,7 @@ resource "google_compute_instance" "app" {
 	type        = "ssh"
 	user        = "appuser"
 	agent       = false
-	private_key = "${file("~/.ssh/appuser")}"
+	private_key = "${file(var.private_key_path)}"
     }
 
     provisioner "file" {
