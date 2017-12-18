@@ -1,7 +1,9 @@
 {
     "variables": {
 	"proj_id": null,
-	"source_image": null,
+	"zone": "australia-southeast1-b",
+	"image_family": "reddit-app-base",
+	"source_image_family": "ubuntu-1604-lts",
 	"machine_type": "f1-micro",
 	"image_description": "Ubuntu 16.04 with Ruby 2.4"
     },
@@ -10,9 +12,11 @@
     {
 	"type": "googlecompute",
 	"project_id": "{{user `proj_id`}}",
-	"image_name": "reddit-base-app-{{timestamp}}",
-	"source_image": "{{user `source_image`}}",
-	"zone": "asia-southeast1-b",
+	"image_name": "reddit-app-base-{{timestamp}}",
+	"image_family": "{{user `image_family`}}",
+	"image_description": "{{user `image_description`}}",
+	"source_image_family": "{{user `source_image_family`}}",
+	"zone": "{{user `zone`}}",
 	"ssh_username": "appuser",
 	"machine_type": "{{user `machine_type`}}"
     }

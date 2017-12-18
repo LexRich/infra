@@ -1,5 +1,4 @@
 {
     "proj_id": "infra-185909",
-    "source_image": "ubuntu-1604-xenial-v20171121a",
     "machine_type": "g1-small"
 }
