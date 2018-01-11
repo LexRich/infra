@@ -4,7 +4,7 @@ variable project {
 
 variable region {
   description = "Region"
-  default     = "europe-west1"
+  default     = "europe-west2"
 }
 
 variable zone {
