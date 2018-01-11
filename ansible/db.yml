@@ -1,0 +1,7 @@
+---
+- name: Configure MongDB
+  hosts: db
+  become: true
+
+  roles:
+    - db
