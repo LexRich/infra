@@ -5,6 +5,7 @@
 *.tf.old
 *.retry
 *.log
+*.pyc
 *pycache*
 .terraform/
 .vagrant/
